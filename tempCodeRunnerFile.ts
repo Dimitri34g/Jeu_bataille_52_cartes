@@ -1,1 +1,1 @@
-console.log(deck.getDeck());
+ as unknown as Card[]
