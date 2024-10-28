@@ -13,8 +13,8 @@ export class Player {
     public getName(): string {
         return this.name;
     }
-    public getHand(): Card[] {
-        return this.hand;
+    public getHand(): string {
+        return `voici la main du joueur ${this.name} : ${this.hand.map(card => card.toString()).join(', ')}`;
     }
     public addCard(card: Card): void {
         this.hand.push(card);
