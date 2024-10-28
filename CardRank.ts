@@ -1,0 +1,15 @@
+export enum CardRank{
+    DEUX,
+    TROIS,
+    QUATRE,
+    CINQUE,
+    SIX,
+    SEPT,
+    HUIT,
+    NEUF,
+    DIX,
+    J,
+    Q,
+    K,
+    A,
+}
