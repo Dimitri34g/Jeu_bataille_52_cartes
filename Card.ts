@@ -22,5 +22,8 @@ export class Card {
     getCardRank(): CardRank {
         return this.cardRank;
     }
-
+    displayCard(): string {
+        
+        return `${CardRank[this.cardRank]} de ${CardFamily[this.cardFamily]}`;
+    }
 }
