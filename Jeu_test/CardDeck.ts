@@ -21,7 +21,7 @@ export class CardDeck {
     }
     displayDeck(): void {
         this.deck.forEach((card) => {
-            console.log(card.getValue());
+            console.log(card.displayCard());
         });
     }
     shuffleDeck(): void {

@@ -1,41 +1,32 @@
 import { Card } from './Card';
-import { CardRank } from './CardRank';
-import { CardFamily } from './CardFamily';
-import { CardDeck } from './CardDeck';
 
 export class Player {
-    private name: string;
-    private hand: Card[];
-    constructor(name: string) {
-        this.name = name;
-        this.hand = [];
-    }
-    public getName(): string {
-        return this.name;
-    }
-    public getHand(): Card[] {
-        return this.hand;
-    }
-    public addCard(card: Card): void {
-        this.hand.push(card);
-    }
-    public playCard(): Card {
-        return this.hand.shift() as Card;
-    }
-    public displayHand(): string {
-        return this.hand.map(card => card.getValue()).join(", ");
-    }
+  hand: Card[] = [];
 
-    // public displayHand(): void {
-    //     console.log(`Voici la main de ${this.name} :`);
-    //     this.hand.forEach((card) => {
-    //         const rankName = CardRank[card.cardRank];
-    //         const familyName = CardFamily[card.cardFamily];
-    //         console.log(`${rankName} de ${familyName}`);
-    //     });
-    // }
+  constructor(public name: string) {
+    console.log(`Player: Création du joueur ${name}`);
+  }
 
-    getNbCards(): number {
-        return this.hand.length;
+  drawCard(): Card | null {
+    console.log(`Player ${this.name}: Pioche une carte`);
+    return this.hand.length > 0 ? this.hand.shift() || null : null;
+  }
+
+  addCards(cards: Card[]): void {
+    console.log(`Player ${this.name}: Ajoute des cartes à sa main (${cards.map(card => card.toString()).join(', ')})`);
+    this.shuffleAndAdd(cards);
+  }
+
+  shuffleAndAdd(cards: Card[]): void {
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
     }
+    this.hand.push(...cards);
+  }
+
+  handSize(): number {
+    console.log(`Player ${this.name}: Taille de la main (${this.hand.length})`);
+    return this.hand.length;
+  }
 }

@@ -8,8 +8,8 @@ export enum CardRank{
     HUIT,
     NEUF,
     DIX,
-    J,
-    Q,
-    K,
-    A,
+    VALET,
+    DAME,
+    ROI,
+    AS,
 }
