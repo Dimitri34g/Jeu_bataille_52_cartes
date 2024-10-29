@@ -6,9 +6,9 @@ import { CardRank } from './CardRank';
 export class CardDeck {
     private deck: Card[];
     constructor() {
-    this.deck = [];
+        this.deck = [];
     }
-    
+
     public createDeck(): void {
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 13; j++) {
@@ -35,5 +35,8 @@ export class CardDeck {
             this.deck[currentIndex] = this.deck[randomIndex];
             this.deck[randomIndex] = tempValue;
         }
-}
+    }
+    drawCard(): Card {
+        return this.deck.pop() as Card;
+    }
 }

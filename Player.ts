@@ -23,7 +23,19 @@ export class Player {
         return this.hand.shift() as Card;
     }
     public displayHand(): string {
-        return this.hand.map(card => card.displayCard()).join(", ");
+        return this.hand.map(card => card.getValue()).join(", ");
     }
-    
+
+    // public displayHand(): void {
+    //     console.log(`Voici la main de ${this.name} :`);
+    //     this.hand.forEach((card) => {
+    //         const rankName = CardRank[card.cardRank];
+    //         const familyName = CardFamily[card.cardFamily];
+    //         console.log(`${rankName} de ${familyName}`);
+    //     });
+    // }
+
+    getNbCards(): number {
+        return this.hand.length;
+    }
 }
